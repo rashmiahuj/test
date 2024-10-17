@@ -17,4 +17,15 @@ pipeline {
 			}
 		}
 	}
+	post {
+		always {
+			echo 'build executed'
+		}
+		success {
+			echo 'build succeeded'
+		}
+		failure {
+			echo 'build failed'
+		}
+	}
 }
