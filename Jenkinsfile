@@ -4,7 +4,7 @@ pipeline {
 		SERVER_CREDENTIALS = credentials('server-credentials')
 	}
 	parameters {
-		choices(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description: 'choose the version to be deployed')
+		choice(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description: 'choose the version to be deployed')
 		booleanParam(name: 'executeTests', defaultValue: true, description: 'whether test phase needs to be executed')
 	}
 	stages {
