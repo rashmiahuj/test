@@ -1,12 +1,12 @@
 pipeline {
 	agent any
-	environment{
-		SERVER_CREDENTIALS = credentials('server-credentials')
-	}
-	parameters {
-		choice(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description: 'choose the version to be deployed')
-		booleanParam(name: 'executeTests', defaultValue: true, description: 'whether test phase needs to be executed')
-	}
+	//environment{
+	//	SERVER_CREDENTIALS = credentials('server-credentials')
+	//}
+	//parameters {
+	//	choice(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description: 'choose the version to be deployed')
+	//	booleanParam(name: 'executeTests', defaultValue: true, description: 'whether test phase needs to be executed')
+	//}
 	stages {
 		stage(“build”) {
 			steps {
@@ -14,11 +14,11 @@ pipeline {
 				}
 			}
 		stage(“test”) {
-			when{
+			/*when{
 				expression{
 					params.executeTests == true
 				}
-			}
+			}*/
 			steps {
 				echo "testing the application"
 			}
@@ -26,8 +26,8 @@ pipeline {
 		stage(“deploy”) {
 			steps {
 				echo "deploying the application"
-				echo "deploying version ${params.VERSION}"
-				echo "deploying with ${SERVER_CREDENTIALS}"
+				//echo "deploying version ${params.VERSION}"
+				//echo "deploying with ${SERVER_CREDENTIALS}"
 			}
 		}
 	}
