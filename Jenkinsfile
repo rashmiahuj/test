@@ -4,9 +4,9 @@ pipeline {
 			label 'docker-agent-new-ubuntu'
 		}
 	}
-	triggers{
+	/*triggers{
 		pollSCM '* * * * *'
-	}
+	}*/
 	environment{
 		SERVER_CREDENTIALS = credentials('my-pipeline-credential')
 	}
