@@ -1,5 +1,9 @@
 pipeline {
-	agent any
+	agent{
+		node{
+			label 'docker-agent-new-ubuntu'
+		}
+	}
 	environment{
 		SERVER_CREDENTIALS = credentials('my-pipeline-credential')
 	}
